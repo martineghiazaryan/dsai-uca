@@ -1,0 +1,71 @@
+select * where {
+  ?x ?p ?y
+}
+---------------------------
+
+select * where {
+  ?x a ?t
+}
+
+-------------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+select * where { ?x a ?t. filter(strstarts(?t,h:)) }
+--------------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+select * where { <http://ns.inria.fr/humans/data#John> a ?t. 
+
+----------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+select * where { ?x a ?t . filter(?x=<http://ns.inria.fr/humans/data#John>) }
+-----------------------
+select * where {
+  ?x ?p "John"; a ?t
+}
+------------------------------------
+describe <http://ns.inria.fr/humans/data#John>
+---------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+select * where { ?x h:hasSpouse ?y }
+
+---------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where { {?x rdf:type h:Person; h:shoesize ?y}}
+----------------------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where {?x rdf:type h:Person . optional {?x h:shoesize ?shoe . filter(?shoe > 8)} optional {?x h:shirtsize ?shirt . filter(?shirt > 12)}}
+
+or 
+
+
+select * where { 
+{?x rdf:type h:Person; h:shoesize ?shoe . filter(?shoe > 8)}
+union
+{?x rdf:type h:Person; h:shirtsize ?shirt . filter(?shirt > 12)}
+} 
+
+---------------------------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where {?x h:hasChild ?child } 
+
+-------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select distinct ?x where {?x h:hasChild ?child}
+
+-----------------------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where {?x a h:Person . Minus {?x h:hasChild ?child}}
+
+or 
+
+select * where { ?x a h:Person. filter not exists {?x h:hasChild ?child}} 
+-------------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where {?x h:age ?age . filter( ?age <= 18)}

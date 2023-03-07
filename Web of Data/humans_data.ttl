@@ -1,0 +1,102 @@
+@prefix : <http://ns.inria.fr/humans/schema#> .
+@prefix  d: <http://ns.inria.fr/humans/data#> .
+#@prefix  rdf: <http://www.w3.org/1999/02/22- rdf-syntax-ns#> .
+#@prefix rdf: <http://www.w3.org/2000/01/ rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ d:Eve rdf:type :Lecturer, :Person ;
+    :hasFriend  d:Alice ;
+    :hasSpouse  d:David ;
+    :name "Eve" .
+
+ d:Florrdf:type rdf:type :Woman ;
+    :age 95 ;
+    :hasChild  d:Pierre ;
+    :hasSpouse  d:Gaston ;
+    :name "Flora" .
+
+ d:Jennifer rdf:type :Woman ;
+    :hasSpouse  d:John ;
+    :name "Jennifer" .
+
+ d:Karl rdf:type :Person ;
+    :age 36 ;
+    :hasFriend  d:Sophie ;
+    :hasSpouse  d:Catherine ;
+    :shirtsize 9 ;
+    :shoesize 7 ;
+    :trouserssize 40 .
+
+ d:Lucas rdf:type :Man ;
+    :age 12 ;
+    :hasMother  d:Catherine ;
+    :name "Lucas" ;
+    :shirtsize 8 ;
+    :shoesize 7 ;
+    :trouserssize 28 .
+
+ d:Mark rdf:type :Person ;
+    :age 14 ;
+    :hasFather  d:John ;
+    :name "Mark" ;
+    :shirtsize 9 ;
+    :shoesize 8 ;
+    :trouserssize 36 .
+
+ d:William rdf:type :Person ;
+    :age 42 ;
+    :hasSpouse  d:Laurrdf:type ;
+    :name "William" ;
+    :shirtsize 13 ;
+    :shoesize 10 ;
+    :trouserssize 46 .
+
+ d:David rdf:type :Person, :Researcher ;
+    :hasFriend  d:Gaston ;
+    :name "David" .
+
+ d:Harry rdf:type :Man ;
+    :hasChild  d:John ;
+    :hasSpouse  d:Sophie ;
+    :name "Harry" .
+
+ d:Jack rdf:type :Man ;
+    :hasChild  d:Harry ;
+    :hasFriend  d:Alice ;
+    :name "Jack" .
+
+ d:Catherine rdf:type :Woman ;
+    :hasMother  d:Laurrdf:type .
+
+ d:Gaston rdf:type :Man, :Researcher ;
+    :age 102 ;
+    :hasChild  d:Jack,  d:Pierre ;
+    :name "Gaston" ;
+    :shirtsize 12 ;
+    :shoesize 11 ;
+    :trouserssize 38 .
+
+ d:Laurra rdf:type :Lecturer, :Person, :Researcher ;
+    :hasFriend  d:Alice ;
+    :name "Laura" .
+
+ d:Pierre rdf:type :Man ;
+    :age 71 ;
+    :name "Pierre" ;
+    :shirtsize 9 ;
+    :shoesize 8 ;
+    :trouserssize 30 .
+
+ d:Alice rdf:type :Woman ;
+    :hasFriend  d:John ;
+    :name "Alice" .
+
+ d:John rdf:type :Person ;
+    :age 37 ;
+    :hasParent  d:Sophie ;
+    :name "John" ;
+    :shirtsize 12 ;
+    :shoesize 14 ;
+    :trouserssize 44 .
+
