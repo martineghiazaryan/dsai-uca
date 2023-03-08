@@ -69,3 +69,52 @@ select * where { ?x a h:Person. filter not exists {?x h:hasChild ?child}}
 prefix h:<http://ns.inria.fr/humans/schema#>
 
 select * where {?x h:age ?age . filter( ?age <= 18)}
+
+--------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where{?pers h:age ?age bind (xsd:integer(?age/2) = (?age)/2 as ?ageEven)}                              
+------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+construct { ?y h:hasFriend ?x }
+where { ?x h:hasFriend ?y }
+---------------------------
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+construct {?second h:hasFriend ?first}
+where { ?first h:hasFriend ?second }
+-----------------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+insert {?second h:hasFriend ?first}
+where { ?first h:hasFriend ?second }
+--------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select * where { ?first h:hasFriend ?second }
+
+-----------------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+select ?person1 ?person2
+where { 
+?person1 h:shirtsize ?size 
+?person2 h:shirtsize ?size
+}
+
+-------------------------------
+
+prefix h:<http://ns.inria.fr/humans/schema#>
+
+
+select ?person1 ?person2
+where { 
+?person1 h:shirtsize ?size 
+?person2 h:shirtsize ?size
+filter(?person1 != ?person2)
+}
