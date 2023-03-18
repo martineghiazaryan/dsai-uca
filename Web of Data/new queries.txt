@@ -1,0 +1,20 @@
+Basic query on RDF human.rdf
+
+1. PREFIX : <http://ns.inria.fr/humans/schema#>
+PREFIX d: <http://ns.inria.fr/humans/data#>
+
+select ?property ?value
+where {
+  d:John ?property ?value
+}
+
+2.PREFIX : <http://ns.inria.fr/humans/schema#>
+PREFIX d: <http://ns.inria.fr/humans/data#>
+
+construct {
+  d:John ?property ?value
+}
+where {
+  d:John ?property ?value
+}
+
