@@ -1,0 +1,234 @@
+#----------------------------------------------------
+                    # Prefixes 
+#----------------------------------------------------
+
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+#----------------------------------------------------
+                    # People 
+#----------------------------------------------------
+:Ava rdf:type :Teacher ;
+     :teacherName "Ava" ;
+     :teacherAge 35 ;
+     :teacherExperience 10 ;
+     :teacherGender "Female" ;
+     :emailAddress "ava@etu.unice.fr" ;
+     :dateOfBirth "1988-04-25"^^xsd:date ;
+     :teachingSubject "Mathematics" .
+
+:Ethan rdf:type :Student ;
+       :studentName "Ethan" ;
+       :studentAge 22 ;
+       :studentGender "Male" ;
+       :emailAddress "ethan@etu.unice.fr" ;
+       :dateOfBirth "2001-02-12"^^xsd:date ;
+       :hasEnrollmentStatus "Active" .
+
+:Liam rdf:type :Student ;
+      :studentName "Liam" ;
+      :studentAge 21 ;
+      :studentGender "Male" ;
+      :emailAddress "liam@etu.unice.fr" ;
+      :dateOfBirth "2002-08-16"^^xsd:date ;
+      :hasEnrollmentStatus "Active" .
+
+:Isabella rdf:type :Teacher ;
+          :teacherName "Isabella" ;
+          :teacherAge 32 ;
+          :teacherExperience 8 ;
+          :teacherGender "Female" ;
+          :emailAddress "isabella@etu.unice.fr" ;
+          :dateOfBirth "1991-10-10"^^xsd:date ;
+          :teachingSubject "Literature" .
+
+:Amelia rdf:type :Student ;
+        :studentName "Amelia" ;
+        :studentAge 23 ;
+        :studentGender "Female" ;
+        :emailAddress "amelia@etu.unice.fr" ;
+        :dateOfBirth "2000-02-25"^^xsd:date ;
+        :hasEnrollmentStatus "Active" ;
+	:receivesPromotion :MeritScholarship .
+
+:Harper rdf:type :Teacher ;
+        :teacherName "Harper" ;
+        :teacherAge 39 ;
+        :teacherExperience 12 ;
+        :teacherGender "Female" ;
+        :emailAddress "harper@etu.unice.fr" ;
+        :dateOfBirth "1984-11-05"^^xsd:date ;
+        :teachingSubject "History" .
+
+:Daniel rdf:type :Student ;
+        :studentName "Daniel" ;
+        :studentAge 24 ;
+        :studentGender "Male" ;
+        :emailAddress "daniel@etu.unice.fr" ;
+        :dateOfBirth "1999-03-29"^^xsd:date ;
+        :hasEnrollmentStatus "Active" .
+
+:Elijah rdf:type :Teacher ;
+        :teacherName "Elijah" ;
+        :teacherAge 45 ;
+        :teacherExperience 20 ;
+        :teacherGender "Male" ;
+        :emailAddress "elijah@etu.unice.fr" ;
+        :dateOfBirth "1978-06-22"^^xsd:date ;
+        :teachingSubject "Physics" .
+
+:Emily rdf:type :Student ;
+       :studentName "Emily" ;
+       :studentAge 20 ;
+       :studentGender "Female" ;
+       :emailAddress "emily@etu.unice.fr" ;
+       :dateOfBirth "2003-04-15"^^xsd:date ;
+       :hasEnrollmentStatus "Active" .
+
+:Samuel rdf:type :Student ;
+        :studentName "Samuel" ;
+        :studentAge 24 ;
+        :studentGender "Male" ;
+        :emailAddress "samuel@etu.unice.fr" ;
+        :dateOfBirth "1999-08-17"^^xsd:date ;
+        :hasEnrollmentStatus "Active" ;
+	:receivesPromotion :MeritScholarship .
+
+:Abigail rdf:type :Student ;
+         :studentName "Abigail" ;
+         :studentAge 22 ;
+         :studentGender "Female" ;
+         :emailAddress "abigail@etu.unice.fr" ;
+         :dateOfBirth "2001-09-08"^^xsd:date ;
+         :hasEnrollmentStatus "Active" .
+
+:Alexander rdf:type :Student ;
+           :studentName "Alexander" ;
+           :studentAge 23 ;
+           :studentGender "Male" ;
+           :emailAddress "alexander@etu.unice.fr" ;
+           :dateOfBirth "2000-07-14"^^xsd:date ;
+           :hasEnrollmentStatus "Active" ;
+	   :receivesPromotion :AcademicExcellenceScholarship .
+
+:William rdf:type :Student ;
+         :studentName "William" ;
+         :studentAge 21 ;
+         :studentGender "Male" ;
+         :emailAddress "william@etu.unice.fr" ;
+         :dateOfBirth "2002-01-30"^^xsd:date ;
+         :hasEnrollmentStatus "Active" .
+
+
+:Olivia rdf:type :Student ;
+        :studentName "Olivia" ;
+        :studentAge 20 ;
+        :studentGender "Female" ;
+        :emailAddress "olivia@etu.unice.fr" ;
+        :dateOfBirth "2003-05-21"^^xsd:date ;
+        :hasEnrollmentStatus "Active" .
+
+
+:DrSmith rdf:type :Teacher ;
+         :teacherName "Dr. John Smith" ;
+         :teacherAge 45 ;
+         :teacherGender "Male" ;
+         :dateOfBirth "1978-03-12"^^xsd:date ;
+         :emailAddress "drsmith@etu.unice.fr" ;
+         :teachingSubject "Physics" ;
+         :teaches :Calculus101 ;
+         :teaches :CS101 .
+
+
+:DrJohnson rdf:type :Teacher ;
+           :teacherName "Dr. Jane Johnson" ;
+           :teacherAge 40 ;
+           :teacherExperience 15 ;
+           :teacherGender "Female" ;
+           :emailAddress "drjohnson@etu.unice.fr" ;
+           :dateOfBirth "1983-05-25"^^xsd:date ;
+           :teachingSubject "Psychology" .
+
+
+#----------------------------------------------------
+                    # Cources 
+#----------------------------------------------------
+
+:Math101 rdf:type :Course ;
+         :courseTitle "Calculus I" ;
+         :courseDescription "An introductory course in calculus." ;
+         :partOfProgram :ComputerScience ;
+         :taughtBy :Ava .
+
+:ComputerScience rdf:type :Program ;
+                 :programName "Bachelor of Science in Computer Science" ;
+                 :programDuration 4 .
+
+:Psychology101 rdf:type :Course ;
+               :courseTitle "Introduction to Psychology" ;
+               :courseDescription "A foundational course in psychology." ;
+               :partOfProgram :BachelorPsychology ;
+               :taughtBy :DrJohnson .
+
+:BachelorPsychology rdf:type :Program ;
+                   :programName "Bachelor of Arts in Psychology" ;
+                   :programDuration 4 .
+
+
+:Physics101 rdf:type :Course ;
+            :courseTitle "Introduction to Physics" ;
+            :courseDescription "A basic course in Physics for beginners." ;
+            :partOfProgram :BachelorPhysics ;
+            :taughtBy :Elijah .
+
+
+:BachelorPhysics rdf:type :Program ;
+                 :programName "Bachelor of Science in Physics" ;
+                 :programDuration 4 .
+
+:Chemistry101 rdf:type :Course ;
+              :courseTitle "Introduction to Chemistry" ;
+              :courseDescription "A basic course in Chemistry for beginners." ;
+              :partOfProgram :BachelorChemistry ;
+              :taughtBy :Olivia .
+
+:BachelorChemistry rdf:type :Program ;
+                  :programName "Bachelor of Science in Chemistry" ;
+                  :programDuration 4 .
+
+:Literature101 rdf:type :Course ;
+              :courseTitle "Introduction to Literature" ;
+              :courseDescription "A foundational course in literature." ;
+              :partOfProgram :BachelorLiterature ;
+              :taughtBy :Isabella .
+
+:BachelorLiterature rdf:type :Program ;
+                    :programName "Bachelor of Arts in Literature" ;
+                    :programDuration 4 .
+
+
+:History101 rdf:type :Course ;
+            :courseTitle "Introduction to History" ;
+            :courseDescription "A foundational course in history, covering major historical events and periods." ;
+            :partOfProgram :BachelorHistory ;
+            :taughtBy :Harper .
+
+:BachelorHistory rdf:type :Program ;
+                 :programName "Bachelor of Arts in History" ;
+                 :programDuration 4 .
+
+
+#----------------------------------------------------
+                    # Scholarships 
+#----------------------------------------------------
+
+
+:AcademicExcellenceScholarship rdf:type :Promotion ;
+                                :promotionName "Academic Excellence Scholarship" .
+
+
+:MeritScholarship rdf:type :Promotion ;
+                  :promotionName "Merit-based Scholarship" .

@@ -1,0 +1,69 @@
+1. Retrieve all people and their subjects:
+
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?person ?subject WHERE {
+  ?person a :Person .
+  ?person :studies ?subject .
+}
+
+
+2. Retrieve people studying the subject 'Mathematics':
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?person WHERE {
+  ?person a :Person .
+  ?person :studies :Mathematics .
+}
+
+
+3.Retrieve all unique pairs of people studying the same subject:
+
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT DISTINCT ?person1 ?person2 WHERE {
+  ?person1 a :Person .
+  ?person2 a :Person .
+  ?person1 :studies ?subject .
+  ?person2 :studies ?subject .
+  FILTER (?person1 != ?person2)
+}
+
+
+4. Retrieve people who are studying at least two subjects:
+
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?person (COUNT(?subject) AS ?subjectCount) WHERE {
+  ?person a :Person .
+  ?person :studies ?subject .
+} GROUP BY ?person
+HAVING (COUNT(?subject) >= 2)
+
+
+
+5. Retrieve the subject studi by the most people:
+
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?subject (COUNT(?person) AS ?personCount) WHERE {
+  ?person a :Person .
+  ?person :studies ?subject .
+} GROUP BY ?subject
+ORDER BY DESC(?personCount)
+LIMIT 1
+
+
+6. Find all students who receive a promotion:
+
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?student
+WHERE {
+  ?student :receivesPromotion true .
+}
