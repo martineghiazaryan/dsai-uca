@@ -27,3 +27,44 @@ construct {
 where {
   :Alexander ?property ?value
 }
+
+
+4. All the courses tought by a certain teacher (Isabella in this case)
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?course ?courseTitle
+WHERE {
+  ?teacher :teacherName "Isabella" .
+  ?course :taughtBy ?teacher .
+  ?course :courseTitle ?courseTitle .
+}
+
+
+5. Find all students enrolled in a particular course (Psychology in this case)
+
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?student ?studentName
+WHERE {
+  ?student a :Student .
+  ?student :enrolledIn ?course .
+  ?course :courseTitle "Introduction to Psychology" .
+  ?student :studentName ?studentName .
+}
+
+
+6. Get all promotions awarded to a particular student (Alexander)
+
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?promotion ?promotionName
+WHERE {
+  ?student :studentName "Alexander" .
+  ?promotion :awardedTo ?student .
+  ?promotion :promotionName ?promotionName .
+}
+
+

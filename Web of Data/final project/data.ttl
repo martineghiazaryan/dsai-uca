@@ -18,7 +18,9 @@
      :teacherGender "Female" ;
      :emailAddress "ava@etu.unice.fr" ;
      :dateOfBirth "1988-04-25"^^xsd:date ;
-     :teachingSubject "Mathematics" .
+     :teachingSubject "Mathematics" ;
+     :teacherPopularity 4.2 .
+
 
 :Ethan rdf:type :Student ;
        :studentName "Ethan" ;
@@ -26,7 +28,8 @@
        :studentGender "Male" ;
        :emailAddress "ethan@etu.unice.fr" ;
        :dateOfBirth "2001-02-12"^^xsd:date ;
-       :hasEnrollmentStatus "Active" .
+       :hasEnrollmentStatus "Active" ;
+       :enrolledIn :Psychology101 .
 
 :Liam rdf:type :Student ;
       :studentName "Liam" ;
@@ -34,7 +37,8 @@
       :studentGender "Male" ;
       :emailAddress "liam@etu.unice.fr" ;
       :dateOfBirth "2002-08-16"^^xsd:date ;
-      :hasEnrollmentStatus "Active" .
+      :hasEnrollmentStatus "Active" ;
+      :enrolledIn :Math101 .
 
 :Isabella rdf:type :Teacher ;
           :teacherName "Isabella" ;
@@ -43,7 +47,8 @@
           :teacherGender "Female" ;
           :emailAddress "isabella@etu.unice.fr" ;
           :dateOfBirth "1991-10-10"^^xsd:date ;
-          :teachingSubject "Literature" .
+          :teachingSubject "Literature" ;
+          :teacherPopularity 4.5 .
 
 :Amelia rdf:type :Student ;
         :studentName "Amelia" ;
@@ -52,7 +57,8 @@
         :emailAddress "amelia@etu.unice.fr" ;
         :dateOfBirth "2000-02-25"^^xsd:date ;
         :hasEnrollmentStatus "Active" ;
-	:receivesPromotion :MeritScholarship .
+	:receivesPromotion :MeritScholarship ;
+        :enrolledIn :Literature101 .
 
 :Harper rdf:type :Teacher ;
         :teacherName "Harper" ;
@@ -61,7 +67,8 @@
         :teacherGender "Female" ;
         :emailAddress "harper@etu.unice.fr" ;
         :dateOfBirth "1984-11-05"^^xsd:date ;
-        :teachingSubject "History" .
+        :teachingSubject "History" ;
+        :teacherPopularity 3.8 .
 
 :Daniel rdf:type :Student ;
         :studentName "Daniel" ;
@@ -69,7 +76,8 @@
         :studentGender "Male" ;
         :emailAddress "daniel@etu.unice.fr" ;
         :dateOfBirth "1999-03-29"^^xsd:date ;
-        :hasEnrollmentStatus "Active" .
+        :hasEnrollmentStatus "Active" ;
+        :enrolledIn :History101 .
 
 :Elijah rdf:type :Teacher ;
         :teacherName "Elijah" ;
@@ -78,7 +86,8 @@
         :teacherGender "Male" ;
         :emailAddress "elijah@etu.unice.fr" ;
         :dateOfBirth "1978-06-22"^^xsd:date ;
-        :teachingSubject "Physics" .
+        :teachingSubject "ComputerScience" ;
+        :teacherPopularity 4.0 .
 
 :Emily rdf:type :Student ;
        :studentName "Emily" ;
@@ -86,7 +95,8 @@
        :studentGender "Female" ;
        :emailAddress "emily@etu.unice.fr" ;
        :dateOfBirth "2003-04-15"^^xsd:date ;
-       :hasEnrollmentStatus "Active" .
+       :hasEnrollmentStatus "Active" ;
+       :enrolledIn :Chemistry101 .
 
 :Samuel rdf:type :Student ;
         :studentName "Samuel" ;
@@ -95,7 +105,8 @@
         :emailAddress "samuel@etu.unice.fr" ;
         :dateOfBirth "1999-08-17"^^xsd:date ;
         :hasEnrollmentStatus "Active" ;
-	:receivesPromotion :MeritScholarship .
+	:receivesPromotion :MeritScholarship ;
+        :enrolledIn :Physics101 .
 
 :Abigail rdf:type :Student ;
          :studentName "Abigail" ;
@@ -103,7 +114,8 @@
          :studentGender "Female" ;
          :emailAddress "abigail@etu.unice.fr" ;
          :dateOfBirth "2001-09-08"^^xsd:date ;
-         :hasEnrollmentStatus "Active" .
+         :hasEnrollmentStatus "Active" ;
+         :enrolledIn :Psychology101 .
 
 :Alexander rdf:type :Student ;
            :studentName "Alexander" ;
@@ -112,7 +124,8 @@
            :emailAddress "alexander@etu.unice.fr" ;
            :dateOfBirth "2000-07-14"^^xsd:date ;
            :hasEnrollmentStatus "Active" ;
-	   :receivesPromotion :AcademicExcellenceScholarship .
+	   :receivesPromotion :AcademicExcellenceScholarship ;
+           :enrolledIn :Math101 .
 
 :William rdf:type :Student ;
          :studentName "William" ;
@@ -120,7 +133,8 @@
          :studentGender "Male" ;
          :emailAddress "william@etu.unice.fr" ;
          :dateOfBirth "2002-01-30"^^xsd:date ;
-         :hasEnrollmentStatus "Active" .
+         :hasEnrollmentStatus "Active" ;
+         :enrolledIn :Literature101 .
 
 
 :Olivia rdf:type :Student ;
@@ -129,18 +143,20 @@
         :studentGender "Female" ;
         :emailAddress "olivia@etu.unice.fr" ;
         :dateOfBirth "2003-05-21"^^xsd:date ;
-        :hasEnrollmentStatus "Active" .
+        :hasEnrollmentStatus "Active" ;
+        :enrolledIn :History101  .
 
 
 :DrSmith rdf:type :Teacher ;
          :teacherName "Dr. John Smith" ;
          :teacherAge 45 ;
+         :teacherExperience 17 ;
          :teacherGender "Male" ;
          :dateOfBirth "1978-03-12"^^xsd:date ;
          :emailAddress "drsmith@etu.unice.fr" ;
          :teachingSubject "Physics" ;
-         :teaches :Calculus101 ;
-         :teaches :CS101 .
+         :teaches :Physics101 ;
+         :teacherPopularity 4.1 .
 
 
 :DrJohnson rdf:type :Teacher ;
@@ -150,7 +166,9 @@
            :teacherGender "Female" ;
            :emailAddress "drjohnson@etu.unice.fr" ;
            :dateOfBirth "1983-05-25"^^xsd:date ;
-           :teachingSubject "Psychology" .
+           :teachingSubject "Psychology" ;
+           :teaches Psychology101 ;
+           :teacherPopularity 3.9 .
 
 
 #----------------------------------------------------
@@ -227,8 +245,11 @@
 
 
 :AcademicExcellenceScholarship rdf:type :Promotion ;
-                                :promotionName "Academic Excellence Scholarship" .
+                                :promotionName "Academic Excellence Scholarship" ;
+                                :awardedTo :Alexander .
 
 
 :MeritScholarship rdf:type :Promotion ;
-                  :promotionName "Merit-based Scholarship" .
+                  :promotionName "Merit-based Scholarship" ;
+                  :awardedTo :Amelia ;
+                  :awardedTo :Samuel .
