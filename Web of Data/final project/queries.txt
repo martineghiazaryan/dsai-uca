@@ -1,69 +1,70 @@
-1. Retrieve all people and their subjects:
+1. Select all the triples
 
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
 
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?person ?subject WHERE {
-  ?person a :Person .
-  ?person :studies ?subject .
+select * where {
+  ?x ?p ?y
 }
 
+2. Select all the students whose age is bigger than 21 
 
-2. Retrieve people studying the subject 'Mathematics':
-
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?person WHERE {
-  ?person a :Person .
-  ?person :studies :Mathematics .
-}
-
-
-3.Retrieve all unique pairs of people studying the same subject:
-
-
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT DISTINCT ?person1 ?person2 WHERE {
-  ?person1 a :Person .
-  ?person2 a :Person .
-  ?person1 :studies ?subject .
-  ?person2 :studies ?subject .
-  FILTER (?person1 != ?person2)
-}
-
-
-4. Retrieve people who are studying at least two subjects:
-
-
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?person (COUNT(?subject) AS ?subjectCount) WHERE {
-  ?person a :Person .
-  ?person :studies ?subject .
-} GROUP BY ?person
-HAVING (COUNT(?subject) >= 2)
-
-
-
-5. Retrieve the subject studi by the most people:
-
-
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?subject (COUNT(?person) AS ?personCount) WHERE {
-  ?person a :Person .
-  ?person :studies ?subject .
-} GROUP BY ?subject
-ORDER BY DESC(?personCount)
-LIMIT 1
-
-
-6. Find all students who receive a promotion:
-
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
 
 SELECT ?student
 WHERE {
-  ?student :receivesPromotion true .
+  ?student a :Student ;
+           :studentAge ?age .
+  FILTER(?age >21)
 }
+
+3. Construct all the properties of Alexander
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+construct {
+  :Alexander ?property ?value
+}
+where {
+  :Alexander ?property ?value
+}
+
+
+4. All the courses tought by a certain teacher (Isabella in this case)
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?course ?courseTitle
+WHERE {
+  ?teacher :teacherName "Isabella" .
+  ?course :taughtBy ?teacher .
+  ?course :courseTitle ?courseTitle .
+}
+
+
+5. Find all students enrolled in a particular course (Psychology in this case)
+
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?student ?studentName
+WHERE {
+  ?student a :Student .
+  ?student :enrolledIn ?course .
+  ?course :courseTitle "Introduction to Psychology" .
+  ?student :studentName ?studentName .
+}
+
+
+6. Get all promotions awarded to a particular student (Alexander)
+
+
+prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+SELECT ?promotion ?promotionName
+WHERE {
+  ?student :studentName "Alexander" .
+  ?promotion :awardedTo ?student .
+  ?promotion :promotionName ?promotionName .
+}
+
+
