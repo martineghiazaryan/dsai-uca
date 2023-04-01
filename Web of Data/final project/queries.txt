@@ -29,42 +29,100 @@ where {
 }
 
 
-4. All the courses tought by a certain teacher (Isabella in this case)
+                                    4. All the courses tought by a certain teacher (Isabella in this case)
 
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
 
-SELECT ?course ?courseTitle
+                                    SELECT ?course ?courseTitle
+                                    WHERE {
+                                      ?teacher :teacherName "Isabella" .
+                                      ?course :taughtBy ?teacher .
+                                      ?course :courseTitle ?courseTitle .
+                                    }
+
+
+                                    5. Find all students enrolled in a particular course (Psychology in this case)
+
+
+                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+                                    SELECT ?student ?studentName
+#       These one dont work         WHERE {
+                                      ?student a :Student .
+                                      ?student :enrolledIn ?course .
+                                      ?course :courseTitle "Introduction to Psychology" .
+                                      ?student :studentName ?studentName .
+                                    }
+
+
+                                    6. Get all promotions awarded to a particular student (Alexander)
+
+
+                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+
+                                    SELECT ?promotion ?promotionName
+                                    WHERE {
+                                      ?student :studentName "Alexander" .
+                                      ?promotion :awardedTo ?student .
+                                      ?promotion :promotionName ?promotionName .
+                                    }
+
+----------------------------------- New queries 01/04/23 ----------------------------------
+
+7. Retrieve the mails 
+
+PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+SELECT ?name ?email
 WHERE {
-  ?teacher :teacherName "Isabella" .
-  ?course :taughtBy ?teacher .
-  ?course :courseTitle ?courseTitle .
+  ?teacher a :Teacher ;
+           :teacherName ?name ;
+           :emailAddress ?email .
 }
 
 
-5. Find all students enrolled in a particular course (Psychology in this case)
+8. Retrieve the names and dates of birth of all the students who were born after January 1st, 2000
 
-
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?student ?studentName
+PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+SELECT ?name ?dob
 WHERE {
-  ?student a :Student .
-  ?student :enrolledIn ?course .
-  ?course :courseTitle "Introduction to Psychology" .
-  ?student :studentName ?studentName .
+  ?student rdf:type :Student ;
+           :studentName ?name ;
+           :dateOfBirth ?dob .
+  FILTER (?dob > "2000-01-01"^^xsd:date)
 }
 
 
-6. Get all promotions awarded to a particular student (Alexander)
+9.Retrieve the names and popularity of all the teachers who specialize in teaching Mathematics
 
-
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-SELECT ?promotion ?promotionName
+PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+SELECT ?name ?popularity
 WHERE {
-  ?student :studentName "Alexander" .
-  ?promotion :awardedTo ?student .
-  ?promotion :promotionName ?promotionName .
+  ?teacher rdf:type :Teacher ;
+           :teacherName ?name ;
+           :teachingSubject "Mathematics" ;
+           :teacherPopularity ?popularity .
 }
 
 
+10. Retrieve the names and scholarship types of all the students who received a scholarship
+
+PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+SELECT ?name ?promotion
+WHERE {
+  ?student rdf:type :Student ;
+           :studentName ?name .
+  OPTIONAL {?student :receivesPromotion ?promotion}
+}
+
+11. Retrieve the names and genders of all the female students
+
+
+
+PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+SELECT ?name ?gender
+WHERE {
+  ?student rdf:type :Student ;
+           :studentName ?name ;
+           :studentGender ?gender .
+  FILTER (?gender = "Female")
+}

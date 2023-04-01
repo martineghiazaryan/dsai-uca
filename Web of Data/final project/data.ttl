@@ -1,12 +1,12 @@
 #----------------------------------------------------
                     # Prefixes 
 #----------------------------------------------------
+@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
 
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 #----------------------------------------------------
                     # People 
@@ -67,7 +67,7 @@
         :teacherGender "Female" ;
         :emailAddress "harper@etu.unice.fr" ;
         :dateOfBirth "1984-11-05"^^xsd:date ;
-        :teachingSubject "History" ;
+        :teachingSubject "History101" ;
         :teacherPopularity 3.8 .
 
 :Daniel rdf:type :Student ;
@@ -200,7 +200,8 @@
             :courseTitle "Introduction to Physics" ;
             :courseDescription "A basic course in Physics for beginners." ;
             :partOfProgram :BachelorPhysics ;
-            :taughtBy :Elijah .
+            :taughtBy :DrSmith .
+
 
 
 :BachelorPhysics rdf:type :Program ;
