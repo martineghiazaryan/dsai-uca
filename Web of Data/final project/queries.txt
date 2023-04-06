@@ -15,7 +15,23 @@ SELECT * WHERE {
   ?x ?p ?y
 }
 
-2. Select all the students whose age is bigger than 21 
+2. Returning all the classes and the subclasses
+
+SELECT DISTINCT ?class WHERE {
+  { ?class a rdfs:Class . }
+  UNION
+  { ?class rdfs:subClassOf ?superclass . }
+}
+
+3. Returning only the subclasses of the Person class only
+
+SELECT ?subclass
+WHERE {
+  ?subclass rdfs:subClassOf cls:Person .
+  FILTER ( ?subclass != cls:Person )
+}
+
+4. Select all the students whose age is bigger than 21 
 
 SELECT ?student
 WHERE {
@@ -24,7 +40,7 @@ WHERE {
   FILTER(?age >21)
 }
 
-3. Construct all the properties of Alexander
+5. Construct all the properties of Alexander
 
 CONSTRUCT {
   ind:Alexander ?property ?value
@@ -34,7 +50,7 @@ WHERE {
 }
 
 
-4. All the courses tought by a certain teacher (Isabella in this case)
+6. All the courses tought by a certain teacher (Isabella in this case)
 
 
 SELECT ?teacher ?course
@@ -76,7 +92,15 @@ WHERE {
            prp:teacherPopularity ?popularity .
 }
 
-10. Retrieve the names and experiences to know the most experiecned teachers
+10. Return the students who are interested in Mathematics (either in Math101 or Math102)
+
+SELECT DISTINCT ?student
+WHERE {
+  ?student rdf:type cls:Student .
+  { ?student prp:enrolledIn crs:Math101 } UNION { ?student prp:enrolledIn crs:Math102 }
+}
+
+11. Retrieve the names and experiences to know the most experiecned teachers
 
 SELECT ?teacher ?teacherName ?experience
 WHERE {
@@ -86,7 +110,7 @@ WHERE {
 }
 ORDER BY DESC(?experience)
 
-11. Retreive the cources with most enrolled students in descending order.
+12. Retreive the cources with most enrolled students in descending order.
 
 SELECT ?course (COUNT(?student) AS ?numOfStudents)
 WHERE {
@@ -97,7 +121,7 @@ GROUP BY ?course
 ORDER BY DESC(?numOfStudents)
 
 
-12. Retrieve the names and scholarship types of all the students who received a scholarship
+13. Retrieve the names and scholarship types of all the students who received a scholarship
 
 SELECT ?name ?promotion
 WHERE {
@@ -106,7 +130,7 @@ WHERE {
   OPTIONAL {?student prp:receivesPromotion ?promotion}
 }
 
-13. Retrieve the names and genders of all the female students
+14. Retrieve the names and genders of all the female students
 
 
 SELECT ?name ?gender
@@ -117,7 +141,7 @@ WHERE {
   FILTER (?gender = "Female")
 }
 
-14. Now I want to know the ratio of the male students to female students.
+15. Now I want to know the ratio of the male students to female students.
 
 Approach: To calculate the ratio of male students to female students, you can first count the number of male and female students separately, and then divide the number of male students by the number of female students. Here's the query to achieve that:
 
@@ -142,7 +166,7 @@ WHERE {
 
 
 
-15. In comparison looking at the ratio of genders between teachers is 0.5 which means there are two times more female teachers than male
+16. In comparison looking at the ratio of genders between teachers is 0.5 which means there are two times more female teachers than male
 
 SELECT (COUNT(?maleTeacher) AS ?maleCount) (COUNT(?femaleTeacher) AS ?femaleCount) ((COUNT(?maleTeacher) / COUNT(?femaleTeacher)) AS ?ratio)
 WHERE {
@@ -163,7 +187,7 @@ WHERE {
   }
 }
 
-16. Lets look at the percentage of students who are on scholarship
+17. Lets look at the percentage of students who are on scholarship
 
 SELECT (COUNT(DISTINCT ?student) AS ?totalStudents)
        (COUNT(DISTINCT ?studentWithScholarship) AS ?studentsWithScholarships)
@@ -177,7 +201,7 @@ WHERE {
   }
 }
 
-17. Lets see all the averages of the score for all the students
+18. Lets see all the averages of the score for all the students
 
 SELECT ?studentName (AVG(?grade) AS ?averageGrade)
 WHERE {
@@ -190,7 +214,7 @@ GROUP BY ?studentName
 ORDER BY DESC (?averageGrade)
 
 
-18. Find all students with an average exam score of 90 or higher, along with their names, email addresses, and the course they are enrolled in:
+19. Find all students with an average exam score of 90 or higher, along with their names, email addresses, and the course they are enrolled in:
 
 SELECT ?student ?studentName ?emailAddress ?course WHERE {
     ?student rdf:type cls:Student ;
@@ -203,7 +227,7 @@ SELECT ?student ?studentName ?emailAddress ?course WHERE {
     FILTER(?averageScore >= 90)
 }
 
-19. Find all students with an average exam score of 40 or higher, along with their names, email addresses, and the course they are enrolled in:
+20. Find all students with an average exam score of 40 or higher, along with their names, email addresses, and the course they are enrolled in:
 
 SELECT ?student ?studentName ?emailAddress ?course WHERE {
     ?student rdf:type cls:Student ;
