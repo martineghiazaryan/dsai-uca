@@ -144,7 +144,6 @@ ind:Olivia rdf:type cls:Student ;
 
 
 # Teachers
-
 ind:Isabella rdf:type cls:Teacher ;
           prp:teacherName "Isabella" ;
           prp:teacherAge 32 ;
@@ -164,7 +163,7 @@ ind:Harper rdf:type cls:Teacher ;
         prp:emailAddress "harper@etu.unice.fr" ;
         prp:dateOfBirth "1984-11-05"^^xsd:date ;
         prp:teachingSubject "History101" ;
-        prp.teaches crs:History101;
+        prp:teaches crs:History101;
         prp:teacherPopularity 3.8 .
 
 ind:Elijah rdf:type cls:Teacher ;
@@ -189,7 +188,6 @@ ind:Ava rdf:type cls:Teacher ;
      prp:teaches crs:Math101;
      prp:teacherPopularity 4.2 .
 
-
 ind:DrSmith rdf:type cls:Teacher ;
          prp:teacherName "Dr. John Smith" ;
          prp:teacherAge 45 ;
@@ -201,7 +199,6 @@ ind:DrSmith rdf:type cls:Teacher ;
          prp:teaches crs:Physics101 ;
          prp:teacherPopularity 4.1 .
 
-
 ind:DrJohnson rdf:type cls:Teacher ;
            prp:teacherName "Dr. Jane Johnson" ;
            prp:teacherAge 40 ;
@@ -211,7 +208,8 @@ ind:DrJohnson rdf:type cls:Teacher ;
            prp:dateOfBirth "1983-05-25"^^xsd:date ;
            prp:teachingSubject "Psychology" ;
            prp:teaches crs:Psychology101 ;
-           prp:teacherPopularity 3.9 .
+           prp:teacherPopularity 3.9
+
 
 
 #----------------------------------------------------

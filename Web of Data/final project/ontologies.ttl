@@ -2,12 +2,15 @@
                     # Prefixes 
 #----------------------------------------------------
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+# My Prefixes
 
 @prefix cls: <http://www.universite-cote-dazur.org/classes#> .
 @prefix prp: <http://www.universite-cote-dazur.org/properties#> .
 
+# Imported Prefixes
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 #----------------------------------------------------
                     # Main Classes

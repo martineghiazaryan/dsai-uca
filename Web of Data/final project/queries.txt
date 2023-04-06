@@ -1,6 +1,15 @@
-1. Select all the triples
+All the queries should include these prefixes
 
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
+prefix cls: <http://www.universite-cote-dazur.org/classes#>
+prefix prp: <http://www.universite-cote-dazur.org/properties#> 
+prefix ind: <http://www.universite-cote-dazur.org/individuals#> 
+prefix crs: <http://www.universite-cote-dazur.org/courses#> 
+prefix prg: <http://www.universite-cote-dazur.org/programs#>
+prefix sch: <http://www.universite-cote-dazur.org/scholarships#> 
+prefix exm: <http://www.universite-cote-dazur.org/exams#> 
+
+
+1. Select all the triples
 
 select * where {
   ?x ?p ?y
@@ -8,93 +17,59 @@ select * where {
 
 2. Select all the students whose age is bigger than 21 
 
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
 SELECT ?student
 WHERE {
-  ?student a :Student ;
-           :studentAge ?age .
+  ?student a cls:Student ;
+           prp:studentAge ?age .
   FILTER(?age >21)
 }
 
 3. Construct all the properties of Alexander
 
-prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
 construct {
-  :Alexander ?property ?value
+  ind:Alexander ?property ?value
 }
 where {
-  :Alexander ?property ?value
+  ind:Alexander ?property ?value
 }
 
 
-                                    4. All the courses tought by a certain teacher (Isabella in this case)
-
-                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-                                    SELECT ?course ?courseTitle
-                                    WHERE {
-                                      ?teacher :teacherName "Isabella" .
-                                      ?course :taughtBy ?teacher .
-                                      ?course :courseTitle ?courseTitle .
-                                    }
+4. All the courses tought by a certain teacher (Isabella in this case)
 
 
-                                    5. Find all students enrolled in a particular course (Psychology in this case)
+SELECT ?teacher ?course
+WHERE {
+  ?teacher prp:teacherName "Isabella" .
+  ?teacher prp:teaches ?course .
+}
 
-
-                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-                                    SELECT ?student ?studentName
-#       These one dont work         WHERE {
-                                      ?student a :Student .
-                                      ?student :enrolledIn ?course .
-                                      ?course :courseTitle "Introduction to Psychology" .
-                                      ?student :studentName ?studentName .
-                                    }
-
-
-                                    6. Get all promotions awarded to a particular student (Alexander)
-
-
-                                    prefix : <http://www.universite-cote-d'azur.org/stuff#> .
-
-                                    SELECT ?promotion ?promotionName
-                                    WHERE {
-                                      ?student :studentName "Alexander" .
-                                      ?promotion :awardedTo ?student .
-                                      ?promotion :promotionName ?promotionName .
-                                    }
 
 ----------------------------------- New queries 01/04/23 ----------------------------------
 
 7. Retrieve the mails 
 
-PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
+
 SELECT ?name ?email
 WHERE {
-  ?teacher a :Teacher ;
-           :teacherName ?name ;
-           :emailAddress ?email .
+  ?teacher rdf:type cls:Teacher ;
+           prp:teacherName ?name ;
+           prp:emailAddress ?email .
 }
 
 
 8. Retrieve the names and dates of birth of all the students who were born after January 1st, 2000
 
-PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
 SELECT ?name ?dob
 WHERE {
-  ?student rdf:type :Student ;
-           :studentName ?name ;
-           :dateOfBirth ?dob .
+  ?student rdf:type cls:Student ;
+           prp:studentName ?name ;
+           prp:dateOfBirth ?dob .
   FILTER (?dob > "2000-01-01"^^xsd:date)
 }
 
 
 9.Retrieve the names and popularity of all the teachers who specialize in teaching Mathematics
 
-PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
 SELECT ?name ?popularity
 WHERE {
   ?teacher rdf:type :Teacher ;
@@ -106,23 +81,108 @@ WHERE {
 
 10. Retrieve the names and scholarship types of all the students who received a scholarship
 
-PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
 SELECT ?name ?promotion
 WHERE {
-  ?student rdf:type :Student ;
-           :studentName ?name .
-  OPTIONAL {?student :receivesPromotion ?promotion}
+  ?student rdf:type cls:Student ;
+           prp:studentName ?name .
+  OPTIONAL {?student prp:receivesPromotion ?promotion}
 }
 
 11. Retrieve the names and genders of all the female students
 
 
-
-PREFIX : <http://www.universite-cote-d'azur.org/stuff#>
 SELECT ?name ?gender
 WHERE {
-  ?student rdf:type :Student ;
-           :studentName ?name ;
-           :studentGender ?gender .
+  ?student rdf:type cls:Student ;
+           prp:studentName ?name ;
+           prp:studentGender ?gender .
   FILTER (?gender = "Female")
 }
+
+12. Now I want to know the ratio of the male students to female students.
+To calculate the ratio of male students to female students, you can first count the number of male and female students separately, and then divide the number of male students by the number of female students. Here's the query to achieve that:
+
+SELECT (COUNT(?maleStudent) AS ?maleCount) (COUNT(?femaleStudent) AS ?femaleCount) ((COUNT(?maleStudent) / COUNT(?femaleStudent)) AS ?ratio)
+WHERE {
+  {
+    SELECT ?maleStudent
+    WHERE {
+      ?maleStudent rdf:type cls:Student ;
+                  prp:studentGender "Male" .
+    }
+  }
+  UNION
+  {
+    SELECT ?femaleStudent
+    WHERE {
+      ?femaleStudent rdf:type cls:Student ;
+                     prp:studentGender "Female" .
+    }
+  }
+}
+
+
+
+13. In comparison looking at the ratio of genders between teachers is 0.5 which means there are two times more female teachers than male
+
+SELECT (COUNT(?maleTeacher) AS ?maleCount) (COUNT(?femaleTeacher) AS ?femaleCount) ((COUNT(?maleTeacher) / COUNT(?femaleTeacher)) AS ?ratio)
+WHERE {
+  {
+    SELECT ?maleTeacher
+    WHERE {
+      ?maleTeacher rdf:type cls:Teacher ;
+                  prp:teacherGender "Male" .
+    }
+  }
+  UNION
+  {
+    SELECT ?femaleTeacher
+    WHERE {
+      ?femaleTeacher rdf:type cls:Teacher ;
+                     prp:teacherGender "Female" .
+    }
+  }
+}
+
+
+
+14. Lets see all the averages of the score for all the students
+
+SELECT ?studentName (AVG(?grade) AS ?averageGrade)
+WHERE {
+  ?student rdf:type cls:Student .
+  ?student prp:studentName ?studentName .
+  ?student prp:hasExamScore ?examScore .
+  ?examScore prp:score ?grade .
+}
+GROUP BY ?studentName
+ORDER BY DESC (?averageGrade)
+
+
+15. Find all students with an average exam score of 90 or higher, along with their names, email addresses, and the course they are enrolled in:
+
+SELECT ?student ?studentName ?emailAddress ?course WHERE {
+    ?student rdf:type cls:Student ;
+             prp:studentName ?studentName ;
+             prp:emailAddress ?emailAddress ;
+             prp:enrolledIn ?course ;
+             prp:hasExamScore [ rdf:type exm:Midterm ; prp:score ?midtermScore ] ;
+             prp:hasExamScore [ rdf:type exm:Final ; prp:score ?finalScore ] .
+    BIND((?midtermScore + ?finalScore) / 2 AS ?averageScore)
+    FILTER(?averageScore >= 90)
+}
+
+16. Find all students with an average exam score of 40 or higher, along with their names, email addresses, and the course they are enrolled in:
+
+SELECT ?student ?studentName ?emailAddress ?course WHERE {
+    ?student rdf:type cls:Student ;
+             prp:studentName ?studentName ;
+             prp:emailAddress ?emailAddress ;
+             prp:enrolledIn ?course ;
+             prp:hasExamScore [ rdf:type exm:Midterm ; prp:score ?midtermScore ] ;
+             prp:hasExamScore [ rdf:type exm:Final ; prp:score ?finalScore ] .
+    BIND((?midtermScore + ?finalScore) / 2 AS ?averageScore)
+    FILTER(?averageScore >= 40)
+}
+
+We can see that all the 10 students passed as the passing point was 40
