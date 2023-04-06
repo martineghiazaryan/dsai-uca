@@ -11,7 +11,7 @@ prefix exm: <http://www.universite-cote-dazur.org/exams#>
 
 1. Select all the triples
 
-select * where {
+SELECT * WHERE {
   ?x ?p ?y
 }
 
@@ -26,10 +26,10 @@ WHERE {
 
 3. Construct all the properties of Alexander
 
-construct {
+CONSTRUCT {
   ind:Alexander ?property ?value
 }
-where {
+WHERE {
   ind:Alexander ?property ?value
 }
 
@@ -43,8 +43,6 @@ WHERE {
   ?teacher prp:teaches ?course .
 }
 
-
------------------------------------ New queries 01/04/23 ----------------------------------
 
 7. Retrieve the mails 
 
@@ -72,14 +70,34 @@ WHERE {
 
 SELECT ?name ?popularity
 WHERE {
-  ?teacher rdf:type :Teacher ;
-           :teacherName ?name ;
-           :teachingSubject "Mathematics" ;
-           :teacherPopularity ?popularity .
+  ?teacher rdf:type cls:Teacher ;
+           prp:teacherName ?name ;
+           prp:teachingSubject "Mathematics" ;
+           prp:teacherPopularity ?popularity .
 }
 
+10. Retrieve the names and experiences to know the most experiecned teachers
 
-10. Retrieve the names and scholarship types of all the students who received a scholarship
+SELECT ?teacher ?teacherName ?experience
+WHERE {
+  ?teacher rdf:type cls:Teacher ;
+           prp:teacherName ?teacherName ;
+           prp:teacherExperience ?experience .
+}
+ORDER BY DESC(?experience)
+
+11. Retreive the cources with most enrolled students in descending order.
+
+SELECT ?course (COUNT(?student) AS ?numOfStudents)
+WHERE {
+  ?student rdf:type cls:Student .
+  ?student prp:enrolledIn ?course .
+}
+GROUP BY ?course
+ORDER BY DESC(?numOfStudents)
+
+
+12. Retrieve the names and scholarship types of all the students who received a scholarship
 
 SELECT ?name ?promotion
 WHERE {
@@ -88,7 +106,7 @@ WHERE {
   OPTIONAL {?student prp:receivesPromotion ?promotion}
 }
 
-11. Retrieve the names and genders of all the female students
+13. Retrieve the names and genders of all the female students
 
 
 SELECT ?name ?gender
@@ -99,8 +117,9 @@ WHERE {
   FILTER (?gender = "Female")
 }
 
-12. Now I want to know the ratio of the male students to female students.
-To calculate the ratio of male students to female students, you can first count the number of male and female students separately, and then divide the number of male students by the number of female students. Here's the query to achieve that:
+14. Now I want to know the ratio of the male students to female students.
+
+Approach: To calculate the ratio of male students to female students, you can first count the number of male and female students separately, and then divide the number of male students by the number of female students. Here's the query to achieve that:
 
 SELECT (COUNT(?maleStudent) AS ?maleCount) (COUNT(?femaleStudent) AS ?femaleCount) ((COUNT(?maleStudent) / COUNT(?femaleStudent)) AS ?ratio)
 WHERE {
@@ -123,7 +142,7 @@ WHERE {
 
 
 
-13. In comparison looking at the ratio of genders between teachers is 0.5 which means there are two times more female teachers than male
+15. In comparison looking at the ratio of genders between teachers is 0.5 which means there are two times more female teachers than male
 
 SELECT (COUNT(?maleTeacher) AS ?maleCount) (COUNT(?femaleTeacher) AS ?femaleCount) ((COUNT(?maleTeacher) / COUNT(?femaleTeacher)) AS ?ratio)
 WHERE {
@@ -144,9 +163,21 @@ WHERE {
   }
 }
 
+16. Lets look at the percentage of students who are on scholarship
 
+SELECT (COUNT(DISTINCT ?student) AS ?totalStudents)
+       (COUNT(DISTINCT ?studentWithScholarship) AS ?studentsWithScholarships)
+       ((COUNT(DISTINCT ?studentWithScholarship) / COUNT(DISTINCT ?student)) * 100 AS ?scholarshipPercentage)
+WHERE {
+  ?student rdf:type cls:Student .
 
-14. Lets see all the averages of the score for all the students
+  OPTIONAL {
+    ?studentWithScholarship rdf:type cls:Student ;
+                            prp:receivesPromotion ?scholarshipType .
+  }
+}
+
+17. Lets see all the averages of the score for all the students
 
 SELECT ?studentName (AVG(?grade) AS ?averageGrade)
 WHERE {
@@ -159,7 +190,7 @@ GROUP BY ?studentName
 ORDER BY DESC (?averageGrade)
 
 
-15. Find all students with an average exam score of 90 or higher, along with their names, email addresses, and the course they are enrolled in:
+18. Find all students with an average exam score of 90 or higher, along with their names, email addresses, and the course they are enrolled in:
 
 SELECT ?student ?studentName ?emailAddress ?course WHERE {
     ?student rdf:type cls:Student ;
@@ -172,7 +203,7 @@ SELECT ?student ?studentName ?emailAddress ?course WHERE {
     FILTER(?averageScore >= 90)
 }
 
-16. Find all students with an average exam score of 40 or higher, along with their names, email addresses, and the course they are enrolled in:
+19. Find all students with an average exam score of 40 or higher, along with their names, email addresses, and the course they are enrolled in:
 
 SELECT ?student ?studentName ?emailAddress ?course WHERE {
     ?student rdf:type cls:Student ;
@@ -185,4 +216,4 @@ SELECT ?student ?studentName ?emailAddress ?course WHERE {
     FILTER(?averageScore >= 40)
 }
 
-We can see that all the 10 students passed as the passing point was 40
+We can see that all the 10 students passed as the passing point was 40.
