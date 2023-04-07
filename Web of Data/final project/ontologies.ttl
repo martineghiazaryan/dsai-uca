@@ -21,23 +21,23 @@ cls:Person rdf:type rdfs:Class ;
         rdfs:comment "A class representing a person."@en .
 
 cls:Teacher rdf:type rdfs:Class ;
-         rdfs:subClassOf cls:Person ;
-         rdfs:label "Teacher"@en ;
-         rdfs:comment "A class representing a teacher."@en .
+        rdfs:subClassOf cls:Person ;
+        rdfs:label "Teacher"@en ;
+        rdfs:comment "A class representing a teacher."@en .
 
 cls:Student rdf:type rdfs:Class ;
-         rdfs:subClassOf cls:Person ;
-         rdfs:label "Student"@en ;
-         rdfs:comment "A class representing a student."@en .
+        rdfs:subClassOf cls:Person ;
+        rdfs:label "Student"@en ;
+        rdfs:comment "A class representing a student."@en .
 
 cls:EducationalEntity rdf:type rdfs:Class ;
-                   rdfs:label "Educational Entity"@en ;
-                   rdfs:comment "A class representing a general educational entity."@en .
+        rdfs:label "Educational Entity"@en ;
+        rdfs:comment "A class representing a general educational entity."@en .
 
 cls:Program rdf:type rdfs:Class ;
-         rdfs:subClassOf cls:EducationalEntity ;
-         rdfs:label "Program"@en ;
-         rdfs:comment "A class representing an academic program."@en .
+        rdfs:subClassOf cls:EducationalEntity ;
+        rdfs:label "Program"@en ;
+        rdfs:comment "A class representing an academic program."@en .
 
 cls:Course rdf:type rdfs:Class ;
         rdfs:subClassOf cls:EducationalEntity ;
@@ -45,13 +45,13 @@ cls:Course rdf:type rdfs:Class ;
         rdfs:comment "A class representing an academic course."@en .
 
 cls:Promotion rdf:type rdfs:Class ;
-           rdfs:subClassOf cls:EducationalEntity ;
-           rdfs:label "Promotion"@en ;
-           rdfs:comment "A class representing a promotion or scholarship awarded to a student."@en .
+        rdfs:subClassOf cls:EducationalEntity ;
+        rdfs:label "Promotion"@en ;
+        rdfs:comment "A class representing a promotion or scholarship awarded to a student."@en .
 
 cls:Exam rdf:type rdfs:Class ;
-         rdfs:label "Exam"@en ;
-         rdfs:comment "An exam taken by a student."@en .
+        rdfs:label "Exam"@en ;
+        rdfs:comment "An exam taken by a student."@en .
 
 #----------------------------------------------------
                     # Object properties 
@@ -59,124 +59,124 @@ cls:Exam rdf:type rdfs:Class ;
 
 
 prp:emailAddress rdf:type rdfs:Property ;
-              rdfs:label "Email Address"@en ;
-              rdfs:comment "An email address of a person."@en ;
-              rdfs:domain cls:Person ;
-              rdfs:range xsd:string .
+        rdfs:label "Email Address"@en ;
+        rdfs:comment "An email address of a person."@en ;
+        rdfs:domain cls:Person ;
+        rdfs:range xsd:string .
 
 prp:dateOfBirth rdf:type rdfs:Property ;
-             rdfs:label "Date of Birth"@en ;
-             rdfs:comment "The date of birth of a person."@en ;
-             rdfs:domain cls:Person ;
-             rdfs:range xsd:date .
+        rdfs:label "Date of Birth"@en ;
+        rdfs:comment "The date of birth of a person."@en ;
+        rdfs:domain cls:Person ;
+        rdfs:range xsd:date .
 
 prp:hasEnrollmentStatus rdf:type rdfs:Property ;
-                     rdfs:label "Enrollment Status"@en ;
-                     rdfs:comment "The enrollment status of a student in a course or program."@en ;
-                     rdfs:domain cls:Student ;
-                     rdfs:range xsd:string .
+        rdfs:label "Enrollment Status"@en ;
+        rdfs:comment "The enrollment status of a student in a course or program."@en ;
+        rdfs:domain cls:Student ;
+        rdfs:range xsd:string .
 
 prp:teaches rdf:type rdfs:Property ;
-         rdfs:label "Teaches"@en ;
-         rdfs:comment "The courses taught by a teacher."@en ;
-         rdfs:domain cls:Teacher ;
-         rdfs:range cls:Course .
+        rdfs:label "Teaches"@en ;
+        rdfs:comment "The courses taught by a teacher."@en ;
+        rdfs:domain cls:Teacher ;
+        rdfs:range cls:Course .
 
 prp:taughtBy rdf:type rdfs:Property ;
-          rdfs:domain cls:Course ;
-          rdfs:range cls:Teacher ;
-          rdfs:label "taught by"@en ;
-          rdfs:comment "The teacher who teaches a particular course."@en .
+        rdfs:domain cls:Course ;
+        rdfs:range cls:Teacher ;
+        rdfs:label "taught by"@en ;
+        rdfs:comment "The teacher who teaches a particular course."@en .
 
 prp:enrolledIn rdf:type rdfs:Property ;
-            rdfs:label "Enrolled In"@en ;
-            rdfs:comment "The courses a student is enrolled in."@en ;
-            rdfs:domain cls:Student ;
-            rdfs:range cls:Course .
+        rdfs:label "Enrolled In"@en ;
+        rdfs:comment "The courses a student is enrolled in."@en ;
+        rdfs:domain cls:Student ;
+        rdfs:range cls:Course .
 
 prp:partOfProgram rdf:type rdfs:Property ;
-               rdfs:label "Part of Program"@en ;
-               rdfs:comment "The program a course is part of."@en ;
-               rdfs:domain cls:Course ;
-               rdfs:range cls:Program .
+        rdfs:label "Part of Program"@en ;
+        rdfs:comment "The program a course is part of."@en ;
+        rdfs:domain cls:Course ;
+        rdfs:range cls:Program .
 
 prp:awardedTo rdf:type rdfs:Property ;
-           rdfs:label "Awarded To"@en ;
-           rdfs:comment "The students who are awarded a promotion."@en ;
-           rdfs:domain cls:Promotion ;
-           rdfs:range cls:Student .
+        rdfs:label "Awarded To"@en ;
+        rdfs:comment "The students who are awarded a promotion."@en ;
+        rdfs:domain cls:Promotion ;
+        rdfs:range cls:Student .
 
 prp:courseTitle rdf:type rdfs:Property ;
-             rdfs:label "Course Title"@en ;
-             rdfs:comment "The title of a course."@en ;
-             rdfs:domain cls:Course ;
-             rdfs:range xsd:string .
+        rdfs:label "Course Title"@en ;
+        rdfs:comment "The title of a course."@en ;
+        rdfs:domain cls:Course ;
+        rdfs:range xsd:string .
 
 prp:courseDescription rdf:type rdfs:Property ;
-                   rdfs:label "Course Description"@en ;
-                   rdfs:comment "A description of a course."@en ;
-                   rdfs:domain cls:Course ;
-                   rdfs:range xsd:string .
+        rdfs:label "Course Description"@en ;
+        rdfs:comment "A description of a course."@en ;
+        rdfs:domain cls:Course ;
+        rdfs:range xsd:string .
 
 prp:teacherName rdf:type rdfs:Property ;
-             rdfs:label "Teacher Name"@en ;
-             rdfs:comment "The name of a teacher."@en ;
-             rdfs:domain cls:Teacher ;
-             rdfs:range xsd:string .
+        rdfs:label "Teacher Name"@en ;
+        rdfs:comment "The name of a teacher."@en ;
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:string .
 
 prp:studentName rdf:type rdfs:Property ;
-             rdfs:label "Student Name"@en ;
-             rdfs:comment "The name of a student."@en ;
-             rdfs:domain cls:Student ;
-             rdfs:range xsd:string .
+        rdfs:label "Student Name"@en ;
+        rdfs:comment "The name of a student."@en ;
+        rdfs:domain cls:Student ;
+        rdfs:range xsd:string .
 
 prp:promotionName rdf:type rdfs:Property ;
-               rdfs:label "Promotion Name"@en ;
-               rdfs:comment "The name of a promotion."@en ;
-               rdfs:domain cls:Promotion ;
-               rdfs:range xsd:string .
+        rdfs:label "Promotion Name"@en ;
+        rdfs:comment "The name of a promotion."@en ;
+        rdfs:domain cls:Promotion ;
+        rdfs:range xsd:string .
 
 prp:teacherAge rdf:type rdfs:Property  ;
-            rdfs:domain cls:Teacher ;
-	    rdfs:range xsd:integer ;
-	    rdfs:comment "The age of the teacher in years" @en .
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:integer ;
+        rdfs:comment "The age of the teacher in years" @en .
 
 
 prp:teacherExperience rdf:type rdfs:Property ;
-		   rdfs:domain cls:Teacher ;
-		   rdfs:range xsd:integer ;
-		   rdfs:comment "The number of years of teaching experience the teacher has" @en .
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:integer ;
+        rdfs:comment "The number of years of teaching experience the teacher has" @en .
 
 
 prp:teacherPopularity rdf:type rdfs:Property ;
-		   rdfs:domain cls:Teacher ;
-		   rdfs:range xsd:float ;
-		   rdfs:comment "A measure of the teacher's popularity, represented as a floating-point number" @en .
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:float ;
+        rdfs:comment "A measure of the teacher's popularity, represented as a floating-point number" @en .
 
 prp:teacherGender rdf:type rdfs:Property ;
-		   rdfs:domain cls:Teacher ;
-		   rdfs:range xsd:string ;
-		   rdfs:comment "The gender of the teacher, represented as a string" @en .
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:string ;
+        rdfs:comment "The gender of the teacher, represented as a string" @en .
 
 prp:teachingSubject rdf:type rdfs:Property ;
-		   rdfs:domain cls:Teacher ;
-		   rdfs:range xsd:string ;
-	 	   rdfs:comment "The subject the teacher specializes in teaching, represented as a string" @en .
+        rdfs:domain cls:Teacher ;
+        rdfs:range xsd:string ;
+        rdfs:comment "The subject the teacher specializes in teaching, represented as a string" @en .
 
 prp:hasExamScore rdf:type rdfs:Property ;
-                 rdfs:label "Has Exam Score"@en ;
-                 rdfs:comment "The exam score of a student in a course."@en ;
-                 rdfs:domain cls:Student ;
-                 rdfs:range xsd:integer .
+        rdfs:label "Has Exam Score"@en ;
+        rdfs:comment "The exam score of a student in a course."@en ;
+        rdfs:domain cls:Student ;
+        rdfs:range xsd:integer .
 
 prp:score rdf:type rdfs:Property ;
-           rdfs:label "Score"@en ;
-           rdfs:comment "The numeric score of a student in an exam."@en ;
-           rdfs:domain cls:Student ;
-           rdfs:range xsd:integer .
+        rdfs:label "Score"@en ;
+        rdfs:comment "The numeric score of a student in an exam."@en ;
+        rdfs:domain cls:Student ;
+        rdfs:range xsd:integer .
 
 prp:examName rdf:type rdfs:Property ;
-             rdfs:label "Exam Name"@en ;
-             rdfs:comment "The name of an exam."@en ;
-             rdfs:domain cls:Exam ;
-             rdfs:range xsd:string .
+        rdfs:label "Exam Name"@en ;
+        rdfs:comment "The name of an exam."@en ;
+        rdfs:domain cls:Exam ;
+        rdfs:range xsd:string .

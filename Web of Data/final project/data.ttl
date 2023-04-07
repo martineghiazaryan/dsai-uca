@@ -26,31 +26,31 @@
 # Students
 
 ind:Ethan rdf:type cls:Student ;
-       prp:studentName "Ethan" ;
-       prp:studentAge 22 ;
-       prp:studentGender "Male" ;
-       prp:emailAddress "ethan@etu.unice.fr" ;
-       prp:dateOfBirth "2001-02-12"^^xsd:date ;
-       prp:hasEnrollmentStatus "Active" ;
-       prp:enrolledIn crs:Psychology101 ;
-       prp:enrolledIn crs:Math102 ;
-       prp:enrolledIn crs:ComputerProgramming ;
-       prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 78 ] ;
-       prp:hasExamScore [ rdf:type exm:Final ;prp:score 85 ] .
+        prp:studentName "Ethan" ;
+        prp:studentAge 22 ;
+        prp:studentGender "Male" ;
+        prp:emailAddress "ethan@etu.unice.fr" ;
+        prp:dateOfBirth "2001-02-12"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:enrolledIn crs:Psychology101 ;
+        prp:enrolledIn crs:Math102 ;
+        prp:enrolledIn crs:ComputerProgramming ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 78 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 85 ] .
 
 ind:Liam rdf:type cls:Student ;
-      prp:studentName "Liam" ;
-      prp:studentAge 21 ;
-      prp:studentGender "Male" ;
-      prp:emailAddress "liam@etu.unice.fr" ;
-      prp:dateOfBirth "2002-08-16"^^xsd:date ;
-      prp:hasEnrollmentStatus "Active" ;
-      prp:enrolledIn crs:Math101  ;
-      prp:enrolledIn crs:Math102 ;
-      prp:enrolledIn crs:ComputerProgramming ;
-      prp:enrolledIn crs:ModernHistory ;
-      prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 90 ] ;
-      prp:hasExamScore [ rdf:type exm:Final ;prp:score 93 ] .
+        prp:studentName "Liam" ;
+        prp:studentAge 21 ;
+        prp:studentGender "Male" ;
+        prp:emailAddress "liam@etu.unice.fr" ;
+        prp:dateOfBirth "2002-08-16"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:enrolledIn crs:Math101  ;
+        prp:enrolledIn crs:Math102 ;
+        prp:enrolledIn crs:ComputerProgramming ;
+        prp:enrolledIn crs:ModernHistory ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 90 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 93 ] .
 
 
 ind:Amelia rdf:type cls:Student ;
@@ -82,16 +82,16 @@ ind:Daniel rdf:type cls:Student ;
 
 
 ind:Emily rdf:type cls:Student ;
-       prp:studentName "Emily" ;
-       prp:studentAge 20 ;
-       prp:studentGender "Female" ;
-       prp:emailAddress "emily@etu.unice.fr" ;
-       prp:dateOfBirth "2003-04-15"^^xsd:date ;
-       prp:hasEnrollmentStatus "Active" ;
-       prp:enrolledIn crs:Chemistry101;
-       prp:enrolledIn crs:Math102 ;
-       prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 85 ] ;
-       prp:hasExamScore [ rdf:type exm:Final ;prp:score 92 ] .
+        prp:studentName "Emily" ;
+        prp:studentAge 20 ;
+        prp:studentGender "Female" ;
+        prp:emailAddress "emily@etu.unice.fr" ;
+        prp:dateOfBirth "2003-04-15"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:enrolledIn crs:Chemistry101;
+        prp:enrolledIn crs:Math102 ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 85 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 92 ] .
 
 ind:Samuel rdf:type cls:Student ;
         prp:studentName "Samuel" ;
@@ -108,45 +108,45 @@ ind:Samuel rdf:type cls:Student ;
         prp:hasExamScore [ rdf:type exm:Final ;prp:score 89 ] .
 
 ind:Abigail rdf:type cls:Student ;
-         prp:studentName "Abigail" ;
-         prp:studentAge 22 ;
-         prp:studentGender "Female" ;
-         prp:emailAddress "abigail@etu.unice.fr" ;
-         prp:dateOfBirth "2001-09-08"^^xsd:date ;
-         prp:hasEnrollmentStatus "Active" ;
-         prp:enrolledIn crs:Psychology101 ;
-         prp:enrolledIn crs:ModernHistory ;
-         prp:enrolledIn crs:Chemistry102  ;
-         prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 90 ] ;
-         prp:hasExamScore [ rdf:type exm:Final ;prp:score 95 ] .
+        prp:studentName "Abigail" ;
+        prp:studentAge 22 ;
+        prp:studentGender "Female" ;
+        prp:emailAddress "abigail@etu.unice.fr" ;
+        prp:dateOfBirth "2001-09-08"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:enrolledIn crs:Psychology101 ;
+        prp:enrolledIn crs:ModernHistory ;
+        prp:enrolledIn crs:Chemistry102  ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 90 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 95 ] .
 
 ind:Alexander rdf:type cls:Student ;
-           prp:studentName "Alexander" ;
-           prp:studentAge 23 ;
-           prp:studentGender "Male" ;
-           prp:emailAddress "alexander@etu.unice.fr" ;
-           prp:dateOfBirth "2000-07-14"^^xsd:date ;
-           prp:hasEnrollmentStatus "Active" ;
-	   prp:receivesPromotion :AcademicExcellenceScholarship ;
-           prp:enrolledIn crs:ComputerProgramming ;
-           prp:enrolledIn crs:Math101 ;
-           prp:enrolledIn crs:Math102 ;
-           prp:enrolledIn crs:Physics102 ;
-           prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 92 ] ;
-           prp:hasExamScore [ rdf:type exm:Final ;prp:score 96 ].
+        prp:studentName "Alexander" ;
+        prp:studentAge 23 ;
+        prp:studentGender "Male" ;
+        prp:emailAddress "alexander@etu.unice.fr" ;
+        prp:dateOfBirth "2000-07-14"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:receivesPromotion :AcademicExcellenceScholarship ;
+        prp:enrolledIn crs:ComputerProgramming ;
+        prp:enrolledIn crs:Math101 ;
+        prp:enrolledIn crs:Math102 ;
+        prp:enrolledIn crs:Physics102 ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 92 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 96 ].
 
 ind:William rdf:type cls:Student ;
-         prp:studentName "William" ;
-         prp:studentAge 21 ;
-         prp:studentGender "Male" ;
-         prp:emailAddress "william@etu.unice.fr" ;
-         prp:dateOfBirth "2002-01-30"^^xsd:date ;
-         prp:hasEnrollmentStatus "Active" ;
-         prp:enrolledIn crs:Literature101 ;
-         prp:enrolledIn crs:WorldLiterature  ;
-         prp:enrolledIn crs:Chemistry102  ;
-         prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 88 ] ;
-         prp:hasExamScore [ rdf:type exm:Final ;prp:score 91 ].
+        prp:studentName "William" ;
+        prp:studentAge 21 ;
+        prp:studentGender "Male" ;
+        prp:emailAddress "william@etu.unice.fr" ;
+        prp:dateOfBirth "2002-01-30"^^xsd:date ;
+        prp:hasEnrollmentStatus "Active" ;
+        prp:enrolledIn crs:Literature101 ;
+        prp:enrolledIn crs:WorldLiterature  ;
+        prp:enrolledIn crs:Chemistry102  ;
+        prp:hasExamScore [ rdf:type exm:Midterm ;prp:score 88 ] ;
+        prp:hasExamScore [ rdf:type exm:Final ;prp:score 91 ].
 
 
 ind:Olivia rdf:type cls:Student ;
@@ -165,15 +165,15 @@ ind:Olivia rdf:type cls:Student ;
 
 # Teachers
 ind:Isabella rdf:type cls:Teacher ;
-          prp:teacherName "Isabella" ;
-          prp:teacherAge 32 ;
-          prp:teacherExperience 8 ;
-          prp:teacherGender "Female" ;
-          prp:emailAddress "isabella@etu.unice.fr" ;
-          prp:dateOfBirth "1991-10-10"^^xsd:date ;
-          prp:teachingSubject "Literature" ;
-          prp:teaches crs:Literature101;
-          prp:teacherPopularity 4.5 .
+        prp:teacherName "Isabella" ;
+        prp:teacherAge 32 ;
+        prp:teacherExperience 8 ;
+        prp:teacherGender "Female" ;
+        prp:emailAddress "isabella@etu.unice.fr" ;
+        prp:dateOfBirth "1991-10-10"^^xsd:date ;
+        prp:teachingSubject "Literature" ;
+        prp:teaches crs:Literature101;
+        prp:teacherPopularity 4.5 .
 
 ind:Harper rdf:type cls:Teacher ;
         prp:teacherName "Harper" ;
@@ -198,37 +198,37 @@ ind:Elijah rdf:type cls:Teacher ;
         prp:teacherPopularity 4.0 .
 
 ind:Ava rdf:type cls:Teacher ;
-     prp:teacherName "Ava" ;
-     prp:teacherAge 35 ;
-     prp:teacherExperience 10 ;
-     prp:teacherGender "Female" ;
-     prp:emailAddress "ava@etu.unice.fr" ;
-     prp:dateOfBirth "1988-04-25"^^xsd:date ;
-     prp:teachingSubject "Mathematics" ;
-     prp:teaches crs:Math101;
-     prp:teacherPopularity 4.2 .
+        prp:teacherName "Ava" ;
+        prp:teacherAge 35 ;
+        prp:teacherExperience 10 ;
+        prp:teacherGender "Female" ;
+        prp:emailAddress "ava@etu.unice.fr" ;
+        prp:dateOfBirth "1988-04-25"^^xsd:date ;
+        prp:teachingSubject "Mathematics" ;
+        prp:teaches crs:Math101;
+        prp:teacherPopularity 4.2 .
 
 ind:DrSmith rdf:type cls:Teacher ;
-         prp:teacherName "Dr. John Smith" ;
-         prp:teacherAge 45 ;
-         prp:teacherExperience 17 ;
-         prp:teacherGender "Male" ;
-         prp:dateOfBirth "1978-03-12"^^xsd:date ;
-         prp:emailAddress "drsmith@etu.unice.fr" ;
-         prp:teachingSubject "Physics" ;
-         prp:teaches crs:Physics101 ;
-         prp:teacherPopularity 4.1 .
+        prp:teacherName "Dr. John Smith" ;
+        prp:teacherAge 45 ;
+        prp:teacherExperience 17 ;
+        prp:teacherGender "Male" ;
+        prp:dateOfBirth "1978-03-12"^^xsd:date ;
+        prp:emailAddress "drsmith@etu.unice.fr" ;
+        prp:teachingSubject "Physics" ;
+        prp:teaches crs:Physics101 ;
+        prp:teacherPopularity 4.1 .
 
 ind:DrJohnson rdf:type cls:Teacher ;
-           prp:teacherName "Dr. Jane Johnson" ;
-           prp:teacherAge 40 ;
-           prp:teacherExperience 15 ;
-           prp:teacherGender "Female" ;
-           prp:emailAddress "drjohnson@etu.unice.fr" ;
-           prp:dateOfBirth "1983-05-25"^^xsd:date ;
-           prp:teachingSubject "Psychology" ;
-           prp:teaches crs:Psychology101 ;
-           prp:teacherPopularity 3.9
+        prp:teacherName "Dr. Jane Johnson" ;
+        prp:teacherAge 40 ;
+        prp:teacherExperience 15 ;
+        prp:teacherGender "Female" ;
+        prp:emailAddress "drjohnson@etu.unice.fr" ;
+        prp:dateOfBirth "1983-05-25"^^xsd:date ;
+        prp:teachingSubject "Psychology" ;
+        prp:teaches crs:Psychology101 ;
+        prp:teacherPopularity 3.9
 
 
 
@@ -237,80 +237,80 @@ ind:DrJohnson rdf:type cls:Teacher ;
 #----------------------------------------------------
 
 crs:Math101 rdf:type cls:Course ;
-         prp:courseTitle "Calculus I" ;
-         prp:courseDescription "An introductory course in calculus." ;
-         prp:partOfProgram crs:ComputerScience ;
-         prp:taughtBy ind:Ava .
+        prp:courseTitle "Calculus I" ;
+        prp:courseDescription "An introductory course in calculus." ;
+        prp:partOfProgram crs:ComputerScience ;
+        prp:taughtBy ind:Ava .
 
 
 crs:Psychology101 rdf:type cls:Course ;
-               prp:courseTitle "Introduction to Psychology" ;
-               prp:courseDescription "A foundational course in psychology." ;
-               prp:partOfProgram crs:BachelorPsychology ;
-               prp:taughtBy ind:DrJohnson .
+        prp:courseTitle "Introduction to Psychology" ;
+        prp:courseDescription "A foundational course in psychology." ;
+        prp:partOfProgram crs:BachelorPsychology ;
+        prp:taughtBy ind:DrJohnson .
 
 
 crs:Physics101 rdf:type cls:Course ;
-            prp:courseTitle "Introduction to Physics" ;
-            prp:courseDescription "A basic course in Physics for beginners." ;
-            prp:partOfProgram crs:BachelorPhysics ;
-            prp:taughtBy ind:DrSmith .
+        prp:courseTitle "Introduction to Physics" ;
+        prp:courseDescription "A basic course in Physics for beginners." ;
+        prp:partOfProgram crs:BachelorPhysics ;
+        prp:taughtBy ind:DrSmith .
 
 
 
 crs:Chemistry101 rdf:type cls:Course ;
-              prp:courseTitle "Introduction to Chemistry" ;
-              prp:courseDescription "A basic course in Chemistry for beginners." ;
-              prp:partOfProgram crs:BachelorChemistry ;
-              prp:taughtBy ind:Olivia
+        prp:courseTitle "Introduction to Chemistry" ;
+        prp:courseDescription "A basic course in Chemistry for beginners." ;
+        prp:partOfProgram crs:BachelorChemistry ;
+        prp:taughtBy ind:Olivia
 
 crs:Literature101 rdf:type cls:Course ;
-              prp:courseTitle "Introduction to Literature" ;
-              prp:courseDescription "A foundational course in literature." ;
-              prp:partOfProgram crs:BachelorLiterature ;
-              prp:taughtBy ind:Isabella .
+        prp:courseTitle "Introduction to Literature" ;
+        prp:courseDescription "A foundational course in literature." ;
+        prp:partOfProgram crs:BachelorLiterature ;
+        prp:taughtBy ind:Isabella .
 
 crs:History101 rdf:type cls:Course ;
-            prp:courseTitle "Introduction to History" ;
-            prp:courseDescription "A foundational course in history, covering major historical events and periods." ;
-            prp:partOfProgram crs:BachelorHistory ;
-            prp:taughtBy ind:Harper .
+        prp:courseTitle "Introduction to History" ;
+        prp:courseDescription "A foundational course in history, covering major historical events and periods." ;
+        prp:partOfProgram crs:BachelorHistory ;
+        prp:taughtBy ind:Harper .
 
 crs:Math102 rdf:type cls:Course ;
-                prp:courseTitle "Calculus II" ;
-                prp:courseDescription "A continuation of Calculus I, covering more advanced topics." ;
-                prp:partOfProgram crs:ComputerScience ;
-                prp:taughtBy ind:Ava .
+        prp:courseTitle "Calculus II" ;
+        prp:courseDescription "A continuation of Calculus I, covering more advanced topics." ;
+        prp:partOfProgram crs:ComputerScience ;
+        prp:taughtBy ind:Ava .
 
 crs:ComputerProgramming rdf:type cls:Course ;
-                prp:courseTitle "Introduction to Computer Programming" ;
-                prp:courseDescription "An introduction to computer programming using Python." ;
-                prp:partOfProgram crs:ComputerScience ;
-                prp:taughtBy ind:Elijah .
+        prp:courseTitle "Introduction to Computer Programming" ;
+        prp:courseDescription "An introduction to computer programming using Python." ;
+        prp:partOfProgram crs:ComputerScience ;
+        prp:taughtBy ind:Elijah .
 
 crs:Physics102 rdf:type cls:Course ;
-                prp:courseTitle "Physics II" ;
-                prp:courseDescription "A continuation of Physics I, covering more advanced topics." ;
-                prp:partOfProgram crs:BachelorPhysics ;
-                prp:taughtBy ind:DrSmith .
+        prp:courseTitle "Physics II" ;
+        prp:courseDescription "A continuation of Physics I, covering more advanced topics." ;
+        prp:partOfProgram crs:BachelorPhysics ;
+        prp:taughtBy ind:DrSmith .
 
 crs:Chemistry102 rdf:type cls:Course ;
-                prp:courseTitle "Chemistry II" ;
-                prp:courseDescription "A continuation of Chemistry I, covering more advanced topics." ;
-                prp:partOfProgram crs:BachelorChemistry ;
-                prp:taughtBy ind:Olivia .
+        prp:courseTitle "Chemistry II" ;
+        prp:courseDescription "A continuation of Chemistry I, covering more advanced topics." ;
+        prp:partOfProgram crs:BachelorChemistry ;
+        prp:taughtBy ind:Olivia .
 
 crs:WorldLiterature rdf:type cls:Course ;
-                prp:courseTitle "World Literature" ;
-                prp:courseDescription "A study of literature from different cultures and time periods." ;
-                prp:partOfProgram crs:BachelorLiterature ;
-                prp:taughtBy ind:Isabella .
+        prp:courseTitle "World Literature" ;
+        prp:courseDescription "A study of literature from different cultures and time periods." ;
+        prp:partOfProgram crs:BachelorLiterature ;
+        prp:taughtBy ind:Isabella .
 
 crs:ModernHistory rdf:type cls:Course ;
-                prp:courseTitle "Modern History" ;
-                prp:courseDescription "A study of history from the 18th century to the present." ;
-                prp:partOfProgram crs:BachelorHistory ;
-                prp:taughtBy ind:Harper .
+        prp:courseTitle "Modern History" ;
+        prp:courseDescription "A study of history from the 18th century to the present." ;
+        prp:partOfProgram crs:BachelorHistory ;
+        prp:taughtBy ind:Harper .
 
 
 #----------------------------------------------------
@@ -319,10 +319,10 @@ crs:ModernHistory rdf:type cls:Course ;
 
 
 exm:Midterm rdf:type cls:Exam ;
-    prp:examName "Midterm" .
+        prp:examName "Midterm" .
 
 exm:Final rdf:type cls:Exam ;
-    prp:examName "Final" .
+        prp:examName "Final" .
 
 
 
@@ -331,28 +331,28 @@ exm:Final rdf:type cls:Exam ;
 #----------------------------------------------------
 
 prg:ComputerScience rdf:type cls:Program ;
-                 prp:programName "Bachelor of Science in Computer Science" ;
-                 prp:programDuration 4 .
+        prp:programName "Bachelor of Science in Computer Science" ;
+        prp:programDuration 4 .
 
 prg:BachelorHistory rdf:type cls:Program ;
-                 prp:programName "Bachelor of Arts in History" ;
-                 prp:programDuration 4 .
+        prp:programName "Bachelor of Arts in History" ;
+        prp:programDuration 4 .
 
 prg:BachelorLiterature rdf:type cls:Program ;
-                    prp:programName "Bachelor of Arts in Literature" ;
-                    prp:programDuration 4 .
+        prp:programName "Bachelor of Arts in Literature" ;
+        prp:programDuration 4 .
 
 prg:BachelorChemistry rdf:type cls:Program ;
-                  prp:programName "Bachelor of Science in Chemistry" ;
-                  prp:programDuration 4 .
+        prp:programName "Bachelor of Science in Chemistry" ;
+        prp:programDuration 4 .
 
 prg:BachelorPsychology rdf:type cls:Program ;
-                   prp:programName "Bachelor of Arts in Psychology" ;
-                   prp:programDuration 4 .
+        prp:programName "Bachelor of Arts in Psychology" ;
+        prp:programDuration 4 .
 
 prg:BachelorPhysics rdf:type cls:Program ;
-                 prp:programName "Bachelor of Science in Physics" ;
-                 prp:programDuration 4 .
+        prp:programName "Bachelor of Science in Physics" ;
+        prp:programDuration 4 .
 
 
 #----------------------------------------------------
@@ -361,11 +361,11 @@ prg:BachelorPhysics rdf:type cls:Program ;
 
 
 sch:AcademicExcellenceScholarship rdf:type cls:Promotion ;
-                                prp:promotionName "Academic Excellence Scholarship" ;
-                                prp:awardedTo ind:Alexander .
+        prp:promotionName "Academic Excellence Scholarship" ;
+        prp:awardedTo ind:Alexander .
 
 
 sch:MeritScholarship rdf:type cls:Promotion ;
-                  prp:promotionName "Merit-based Scholarship" ;
-                  prp:awardedTo ind:Amelia ;
-                  prp:awardedTo ind:Samuel .
+        prp:promotionName "Merit-based Scholarship" ;
+        prp:awardedTo ind:Amelia ;
+        prp:awardedTo ind:Samuel .
